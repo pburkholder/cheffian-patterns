@@ -38,6 +38,13 @@ Working with Chef
 * Server scaling and availability
 * Secrets and security
 * CM doesn't mean you say goodbye to SSH/Winrm (sorry)
+* Your pilot project
+  * Get chef-client w/ empty runlist everywhere
+  * chef-client to manage MOTD 
+  * Use chef to configure a new service (logging, monitoring) on existing nodes
+  * Use chef in a Greenfield project on new nodes
+  * Use chef to bring a manually managed service under configuration-management - **AntiPattern**
+    * You're sure to miss something or break something. You'll need a full rebuild to be sane.
 
 
 The Chef Ecosystem

@@ -17,7 +17,7 @@ Chef Language
   * Arrays are to be avoided at all costs
   * Use 'default' except when you don't
   * When to use run_state
-  ** Roles
+* Roles
 * Environments
 * Databags
   * Are they really a code smell?
@@ -37,6 +37,7 @@ Working with Chef
   * Complementary tools (e.g. Consul, Zookeeper)
 * Server scaling and availability
 * Secrets and security
+* CM doesn't mean you say goodbye to SSH/Winrm (sorry)
 
 
 The Chef Ecosystem
@@ -45,8 +46,10 @@ The Chef Ecosystem
   * How to assess and consume them
   * How to wrap them
   * When to rewind and when to give up
-* Automation Champions
+* Running Supermarket internally
+  * Exposes Berkshelf API for berks 3.0
 * Communication and community building
+  * Automation Champions
 * Getting and offering help
   * Pull requests and code reviews
 

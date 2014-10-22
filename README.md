@@ -55,3 +55,4 @@ Disclaimer
 ==========
 
 These views are my own and are not those of Chef, Inc.
+Copyright 2014 Peter Burkholder

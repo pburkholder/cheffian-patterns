@@ -8,6 +8,8 @@ Chef has no "best practices" and many good practices are still emerging, or are 
 Contents
 ========
 
+Chef Language
+-------------
 * Attributes
   * Lazy attributes: Use a variable if you can
   * Naming/Namespacing
@@ -15,6 +17,13 @@ Contents
   * Arrays are to be avoided at all costs
   * Use 'default' except when you don't
   * When to use run_state
+  ** Roles
+* Environments
+* Databags
+  * Are they really a code smell?
+ 
+Working with Chef
+-----------------
 * Workflows, cookbook promotion and versioning
   * knife-spork
   * berks apply
@@ -22,20 +31,25 @@ Contents
 * Catching errors
   * Analytics
   * Handlers
-* Commmunity cookbooks
-  * How to assess and consume them
-  * How to wrap them
-  * When to rewind and when to give up
-* Server scaling and availability
-* Secrets and security
 * Service discovery
   * Search often lags behind reality
   * Use services that don't require discovery (e.g. Sensu instead of Nagios)
   * Complementary tools (e.g. Consul, Zookeeper)
-* Roles
-* Environments
-* Databags
-  * Are they really a code smell?
+* Server scaling and availability
+* Secrets and security
+
+
+The Chef Ecosystem
+-------------------
+* Commmunity cookbooks
+  * How to assess and consume them
+  * How to wrap them
+  * When to rewind and when to give up
+* Automation Champions
+* Communication and community building
+* Getting and offering help
+  * Pull requests and code reviews
+
 
 Disclaimer
 ==========

@@ -59,6 +59,11 @@ The Chef Ecosystem
   * Automation Champions
 * Getting and offering help
   * Pull requests and code reviews
+* How drive up  end user engagement beyond IT/OPs?
+  * Hold a 'Meetup' internally for Cheffians to share use cases, success stories, garner enthusiasm
+  * Hold regular brownbags, cookbook sessions
+  * Share success stories
+  * Start small
 
 
 Disclaimer

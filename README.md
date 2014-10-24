@@ -56,6 +56,12 @@ Working with Chef
   * Use chef in a Greenfield project on new nodes
   * Use chef to bring a manually managed service under configuration-management - **AntiPattern**
     * You're sure to miss something or break something. You'll need a full rebuild to be sane.
+* Working with multiple Chef servers or orgs
+  * https://github.com/greenandsecure/knife-block
+  * ChefVM
+  * Running supermarket internally
+   * Exposes Berkshelf API for berks 3.0
+   * Berks 3 no longer pulls from Chef server(?)
 
 
 The Chef Ecosystem
@@ -64,8 +70,7 @@ The Chef Ecosystem
   * How to assess and consume them
   * How to wrap them
   * When to rewind and when to give up
-* Running Supermarket internally
-  * Exposes Berkshelf API for berks 3.0
+
 * Communication and community building
   * Automation Champions
 * Getting and offering help

@@ -32,6 +32,7 @@ Chef Language
    2. Dynamically modifying resource methods with  the `resource(some_resource)` as in [Seth Vargo's Changing Resources at Runtime](https://sethvargo.com/changing-chef-resources-at-runtime/)
    1. Delay some compilation/evaluation steps until the execution phase using `lazy` and/or `node.run_state` per [The Recipe Docs](https://docs.getchef.com/essentials_cookbook_recipes.html#node-run-state)
    2. For node attributes, use [Noah Kantrowitz's Derived Attributes](https://coderanger.net/derived-attributes/) suggestion.
+   3. Avoid use of `execute` and `ruby_block`. Per FC014: Consider extracting long ruby\_block to library (http://acrmp.github.io/foodcritic/#FC014) and `ruby_block` doesn't handle notify well.
  
 Working with Chef
 -----------------

@@ -21,6 +21,15 @@ Chef Language
 * Environments
 * Databags
   * Are they really a code smell?
+  * 
+* "Dynamic execution": What do I mean here? Most cookbook's consume attributes and apply those attributes to resources. But what if that attribute value is not known at cookbook creation time or chef-client initiation time?
+  * Here's one set of answers I generate : There are four ways to feed data into a Chef cookbook recipe, each with their following use cases:
+    * From a cookbook attribute: This is probably the go-to answer for most Chef coders, but attributes should only be used as an API into the cookbook. If we don't want these data to change at the role or environment level, then we shouldn't use an attribute.
+    * From a data bag: Data bags are global, and not subject to the vagaries of attribute precedence levels, but they're also unversioned and don't leave an audit trail.
+    * From code internal to the cookbook: This is my preference here, since the data are tied closely to the functionality of the cookbook, and we have the VCS and Chef versioning tools to track changes to these data.
+    * From an Ohai plugin on the node: If the data were being pulled from a database or other external source, this would also be a feasible option.
+  * But the above only addresses data that are known before the client run starts, what about data that aren't available until the run starts?
+   * 
  
 Working with Chef
 -----------------

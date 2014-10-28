@@ -63,6 +63,8 @@ Working with Chef
   * Running supermarket internally
    * Exposes Berkshelf API for berks 3.0
    * Berks 3 no longer pulls from Chef server(?)
+* "Enforcing run_list"
+  * breaks the model -- see page for this.
 
 
 The Chef Ecosystem

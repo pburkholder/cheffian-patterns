@@ -30,3 +30,8 @@ Here are some resources addressing the points above:
 ## About rewind
 
 Rewinding makes cookbooks hard to reason about. Generally should only be necessary when you're consuming community cookbooks that need a patch/functionality/override that has not yet been accepted upstream. When you control dependent cookbook code you generally won't need to `rewind`.
+
+## About this document
+
+Questions around this come up all the time. A few examples:
+* http://lists.opscode.com/sympa/arc/chef/2014-10/msg00408.html

@@ -17,8 +17,14 @@ Chef Language
   * Arrays are to be avoided at all costs
   * Use 'default' except when you don't
   * When to use run_state
-  * pure_ruby always wins: ````
-````ruby
+  * pure_ruby always wins:
+   ````ruby
+   template expander_config do
+    source "expander.rb.erb" # snip
+    options = node['private_chef']['opscode-expander'].to_hash
+    options['reindexer'] = false
+    variables(options)
+  end
 ````
 * Roles
 * Environments

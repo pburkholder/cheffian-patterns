@@ -17,6 +17,9 @@ Chef Language
   * Arrays are to be avoided at all costs
   * Use 'default' except when you don't
   * When to use run_state
+  * pure_ruby always wins: ````
+````ruby
+````
 * Roles
 * Environments
 * Databags

@@ -35,3 +35,5 @@ Rewinding makes cookbooks hard to reason about. Generally should only be necessa
 
 Questions around this come up all the time. A few examples:
 * http://lists.opscode.com/sympa/arc/chef/2014-10/msg00408.html
+* http://lists.opscode.com/sympa/arc/chef/2014-11/msg00006.html:
+  * What if you need to modify an attribute only when including a recipe? E.g., I have a third_party.rb recipe on my company_openssh cookbook that enables third_party system group to login via ssh, this is done by adding that grop to the [openssh]['allowed_groups'] attribute. I cant do this on attribute files because that way, the group access is always allowed. (OR): I want to open 443 on my node firewall only when i enable the http_ssl, by including that recipe on a securewebserer role

@@ -78,7 +78,7 @@ The Chef Ecosystem
   * How to assess and consume them
   * How to wrap them
   * When to rewind and when to give up
-
+* Multi-org chef server with Supermarket for common cookbooks - what pattern to follow
 * Communication and community building
   * Automation Champions
 * Getting and offering help

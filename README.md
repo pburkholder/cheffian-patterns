@@ -88,6 +88,19 @@ The Chef Ecosystem
   * Hold regular brownbags, cookbook sessions
   * Share success stories
   * Start small
+  * 
+  
+
+About this document
+===================
+
+Chef doesn't provide good guidance on practices once. e.g.:
+
+* Mailing list, 26 Nov 2014:
+
+  > Take - for example- the strategy of the cheap hosting provider DigitalOcean - They provide lots of nice and easy tutorials that not only rank quite well in Google but also slightly tie the users to their (commodity/kvm-vps) services. When someone searches for „chef best practices“ or „chef tutorials“, he will find https://learn.getchef.com/ which is just a tutorial about chef, not about solving real world problems (e.g., install and maintain a decent mailing list service in the cloud).
+  > You’ll only reach people that are already sold to chef (or forced to use it) but not the unbiased user that want’s to level up in DevOps. Such users usually have a „real world problem they need to solve“ and will find „copy+paste“ tutorials  or trending „how I solved everything in 5 minutes with docker, go and nodejs“ blogposts somewhere else and will never learn the benefits of chef and its toolchain.
+  > IMHO this is an excellent occasion to write a real-word application-cookbook for a mailing list/discourse-combination and use it as an example in your tutorial/docs/blog ;)
 
 
 Disclaimer

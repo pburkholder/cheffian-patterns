@@ -54,6 +54,7 @@ Working with Chef
   * Complementary tools (e.g. Consul, Zookeeper)
 * Server scaling and availability
   * Important point is: don't get hung up on this. It's okay to stand up a standalone server while you build out your HA system; and probably better if you do it this way. Just be ready to move DNS and ec-backup when your HA server is ready. (Ref. discussion peter/irving re. credit card customer)
+  * *anti-pattern*: monolithic clusters -- cross-datacenter search is not worth the pain. Scaling beyond 50k nodes per cluster needs a hard look. 
 * Secrets and security
 * CM doesn't mean you say goodbye to SSH/Winrm (sorry)
 * Your pilot project

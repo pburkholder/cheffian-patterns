@@ -91,6 +91,12 @@ The Chef Ecosystem
   * Share success stories
   * Start small
   * 
+* Adam Jacobs recommends
+  * Demo your stuff relentlessly, every week, invite the sharks and naysayers
+  * 1 big ugly cookbook for, say, JBoss is a good thing as it exposes the ugliness to developers who would rather pretend it's not there. Uses peer pressure to move to better code
+  * Start with a working group to hammer out initial implementation, then disperse them. Bring in others and spit them out.
+    * Communisim ?? [getting clarification here]
+  * IT doesn't matter, but employee engagement does. And shorter cycle time builds engagement.
   
 
 About this document

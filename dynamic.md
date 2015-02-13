@@ -12,8 +12,6 @@ There are four ways to feed data into a Chef cookbook recipe, each with their fo
 
 But the above only addresses data that are known before the client run starts, what about data that aren't available until the run starts?
 
-
-
 1. If the data are going to be available at the start of the Chef run, such as DB lookups, service discovery, use Ohai.
 1. If the resource providing the datum needs to be available at compile time, then using the `resource.run_action()` let you execute a resource during the compile phase
 1. A variable can be set at compile time and then utilized at run time(?)
@@ -27,6 +25,8 @@ Here are some resources addressing the points above:
 2. For node attributes, use [Noah Kantrowitz's Derived Attributes](https://coderanger.net/derived-attributes/) suggestion.
 3. Avoid use of `execute` and `ruby_block`. Per FC014: Consider extracting long rubyblock to library (http://acrmp.github.io/foodcritic/#FC014) and `ruby_block` doesn't handle notify well.
 
-## About rewind
+## About rewind or dynamic modification of resources
 
-Rewinding makes cookbooks hard to reason about. Generally should only be necessary when you're consuming community cookbooks that need a patch/functionality/override that has not yet been accepted upstream. When you control dependent cookbook code you generally won't need to `rewind`.
+Rewinding makes cookbooks hard to reason about. Generally should only be necessary when you're consuming community cookbooks that need a patch or functionality that has not yet been accepted upstream. When you control dependent cookbook code you generally won't need to `rewind`.
+
+Template path is probably an exception to the above statement

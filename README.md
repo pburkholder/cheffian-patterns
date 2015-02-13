@@ -17,6 +17,15 @@ Chef Language
   * Arrays are to be avoided at all costs
   * Use 'default' except when you don't
   * When to use run_state
+  * pure_ruby always wins:
+   ````ruby
+   template expander_config do
+    source "expander.rb.erb" # snip
+    options = node['private_chef']['opscode-expander'].to_hash
+    options['reindexer'] = false
+    variables(options)
+  end
+````
 * Roles
 * Environments
 * Databags
@@ -44,6 +53,8 @@ Working with Chef
   * Use services that don't require discovery (e.g. Sensu instead of Nagios)
   * Complementary tools (e.g. Consul, Zookeeper)
 * Server scaling and availability
+  * Important point is: don't get hung up on this. It's okay to stand up a standalone server while you build out your HA system; and probably better if you do it this way. Just be ready to move DNS and ec-backup when your HA server is ready. (Ref. discussion peter/irving re. credit card customer)
+  * *anti-pattern*: monolithic clusters -- cross-datacenter search is not worth the pain. Scaling beyond 50k nodes per cluster needs a hard look. 
 * Secrets and security
 * CM doesn't mean you say goodbye to SSH/Winrm (sorry)
 * Your pilot project
@@ -69,7 +80,7 @@ The Chef Ecosystem
   * How to assess and consume them
   * How to wrap them
   * When to rewind and when to give up
-
+* Multi-org chef server with Supermarket for common cookbooks - what pattern to follow
 * Communication and community building
   * Automation Champions
 * Getting and offering help
@@ -79,6 +90,25 @@ The Chef Ecosystem
   * Hold regular brownbags, cookbook sessions
   * Share success stories
   * Start small
+  * 
+* Adam Jacobs recommends
+  * Demo your stuff relentlessly, every week, invite the sharks and naysayers
+  * 1 big ugly cookbook for, say, JBoss is a good thing as it exposes the ugliness to developers who would rather pretend it's not there. Uses peer pressure to move to better code
+  * Start with a working group to hammer out initial implementation, then disperse them. Bring in others and spit them out.
+    * Communisim ?? [getting clarification here]
+  * IT doesn't matter, but employee engagement does. And shorter cycle time builds engagement.
+  
+
+About this document
+===================
+
+Chef doesn't provide good guidance on practices once. e.g.:
+
+* Mailing list, 26 Nov 2014:
+
+  > Take - for example- the strategy of the cheap hosting provider DigitalOcean - They provide lots of nice and easy tutorials that not only rank quite well in Google but also slightly tie the users to their (commodity/kvm-vps) services. When someone searches for „chef best practices“ or „chef tutorials“, he will find https://learn.getchef.com/ which is just a tutorial about chef, not about solving real world problems (e.g., install and maintain a decent mailing list service in the cloud).
+  > You’ll only reach people that are already sold to chef (or forced to use it) but not the unbiased user that want’s to level up in DevOps. Such users usually have a „real world problem they need to solve“ and will find „copy+paste“ tutorials  or trending „how I solved everything in 5 minutes with docker, go and nodejs“ blogposts somewhere else and will never learn the benefits of chef and its toolchain.
+  > IMHO this is an excellent occasion to write a real-word application-cookbook for a mailing list/discourse-combination and use it as an example in your tutorial/docs/blog ;)
 
 
 Disclaimer

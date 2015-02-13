@@ -1,4 +1,7 @@
-'d advise for starting out that you begin with a role_base cookbook with multiple recipes in it.  The structure then looks like:
+
+Lamont wrote:  
+
+I'd advise for starting out that you begin with a role_base cookbook with multiple recipes in it.  The structure then looks like:
 
 
 metadata.rb

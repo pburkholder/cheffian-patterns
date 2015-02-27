@@ -90,6 +90,7 @@ The Chef Ecosystem
   * Hold regular brownbags, cookbook sessions
   * Share success stories
   * Start small
+  * See also The Standard Bank Dev Ops journey, part 3 here: https://www.chef.io/blog/2015/02/16/standard-bank-our-devops-journey-part-3/
   * 
 * Adam Jacobs recommends
   * Demo your stuff relentlessly, every week, invite the sharks and naysayers

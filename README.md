@@ -78,7 +78,9 @@ The Chef Ecosystem
 -------------------
 * Commmunity cookbooks
   * How to assess and consume them
-  * How to wrap them
+  * How to wrap them --
+   * E.g. This message on chef-users:
+    Clearly from the mailing list and http://stackoverflow.com/search?q=chef+wrapper+cookbook there are tons of questions about how best to use wrapper cookbooks. http://lists.opscode.com/sympa/arc/chef/2015-04/msg00135.html
   * When to rewind and when to give up
 * Multi-org chef server with Supermarket for common cookbooks - what pattern to follow
 * Communication and community building

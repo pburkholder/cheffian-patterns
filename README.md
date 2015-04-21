@@ -15,12 +15,12 @@ Chef Language
   * Naming/Namespacing
   * Scoping
   * Arrays are to be avoided at all costs
-  * Use 'default' except when you don't
-   * node.default
-   * node.override
-   * node.normal - stored with node state on server
-   * node.run_state - exists only in context of chef run.
-  * When to use run_state
+  * Node attribute level: Use 'default' except when you don't
+    * node.default
+    * node.override
+    * node.normal - stored with node state on server
+    * node.run_state - exists only in context of chef run.
+    * When to use run_state
   * pure_ruby always wins:
    ````ruby
    template expander_config do

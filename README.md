@@ -45,6 +45,8 @@ Chef Language
 
 Working with Chef
 -----------------
+* Promoting Cookbook Versions
+  * See email thread, http://lists.opscode.com/sympa/arc/chef/2015-04/msg00255.html, "How to manage cookbook versions"
 * Workflows, cookbook promotion and versioning
   * knife-spork
   * berks apply

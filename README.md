@@ -113,6 +113,13 @@ The Chef Ecosystem
   * Start with a working group to hammer out initial implementation, then disperse them. Bring in others and spit them out.
     * Communisim ?? [getting clarification here]
   * IT doesn't matter, but employee engagement does. And shorter cycle time builds engagement.
+
+For further reading
+-------------------
+
+This blog post,
+http://www.prashantrajan.com/posts/2013/06/leveling-up-chef-best-practices/,
+has a nice set of links to others' best practices.
   
 
 About this document

@@ -77,7 +77,14 @@ Working with Chef
    * Exposes Berkshelf API for berks 3.0
    * Berks 3 no longer pulls from Chef server(?)
 * "Enforcing run_list"
-  * breaks the model -- see page for this.
+  * breaks the model -- see page for this. -- but wait -- desired state configuration is coming
+* cookbook repository organization
+  * one repo per cookbook (Berkshelf way)
+  * one massive repo
+  * Mixed
+    * one repo for chef
+    * one repo per cookbooks for cookbooks across teams
+    * one repo per project with multiple cookbooks therein
 
 
 The Chef Ecosystem

@@ -40,7 +40,9 @@ Chef Language
   * HWRPs or plain old resources
 *
 
-
+Testing
+-------
+ * See http://lists.opscode.com/sympa/arc/chef/2015-05/msg00134.html for J Timberman's summary
 
 
 Working with Chef

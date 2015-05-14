@@ -67,13 +67,15 @@ Working with Chef
   * *anti-pattern*: monolithic clusters -- cross-datacenter search is not worth the pain. Scaling beyond 50k nodes per cluster needs a hard look. 
   * Whitelisting attributes
   * Bloated chefs talk from chefconf15
-* Secrets and security
+* Secrets
   * knife vault: hard to use, no locking on databags, no transactions and requires two ops to succeed, autoscaling hard
   * Hashicorp Vault
   * Sneaker (AWS only?)
   * Conjur
   * Cloudflare RedOctober
   * AWS Key Management Service (AWS only)
+* Security
+  * How to answer: Is Chef PCI compliant (or 'x-compliant')?
 * CM doesn't mean you say goodbye to SSH/Winrm (sorry)
 * Your pilot project
   * Get chef-client w/ empty runlist everywhere

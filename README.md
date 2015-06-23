@@ -85,7 +85,16 @@ Working with Chef
     * one repo for chef
     * one repo per cookbooks for cookbooks across teams
     * one repo per project with multiple cookbooks therein
-
+ * cookbooks always roll forward.
+   * suppose 1.0.0 sets httpd version to 2.2.2
+     - 1.0.1 sets httpd version to 2.2.3 _and_ installs squid. And things
+       break.
+       - Maybe squid breaks things, or maybe its the httpd update. No one is
+         sure
+     - Rolling back to 1.0.0 does would roll back httpd to 2.2.2, but does
+       nothing about squid
+     - So one must roll forward to cookbook 1.0.2 with httpd 2.2.2, and ensure
+       squid is absent.
 
 The Chef Ecosystem
 -------------------

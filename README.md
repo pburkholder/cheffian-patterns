@@ -1,173 +1,65 @@
 chef-patterns
 =============
 
-Chef Patterns and Anti-patterns
+Welcome to the _Library of Chef Patterns and Practices_ (aka 'LOPP': Library of Patterns and Practices).  
 
-Chef has no "best practices" and many good practices are still emerging, or are yet to be built. Nonetheless, Chef can do more to steer users towards common pattern and away from anti-patterns. This repo is stub of what that might look like.
+About "Patterns" and "Best Practices":
+- Design _patterns_ are solutions to software design problems you find again and
+  again in real-world application development. Patterns are about reusable
+  designs and interactions. You will not use and often cannot use
+  every pattern, and many of them are mutually exclusive. The inspiration comes
+  from TK 'Design Pattterns' and Christopher Alexander's 'Pattern Language'.
+- _Anti-patterns_ are commonly adopted practices that end up being counter-productive. They often have their root in good _design patterns_ but are often taken to an extreme or miss a key element that subvert their good intent.
+- _Best Practices_ are often conflated with mediocritiy, thanks in part
+  to the work of Scott Adams. We have nonetheless identified Chef best practices that all sites should adopt unless there are uniquely compelling circumstances.
+
+![Best Practices are Mediocrity](media/dilbert-bp.gif)
+
+The term 'pattern' below is used for any single topic describing a single pattern, antipattern or best practice.
+
+
+Organization
+------------
+
+This repo is an interim home to the LOPP, pending transition to a yet-to-be-determined [LOPP platform](./LOPP_platform.md). For the time being:
+
+- all patterns are described in file in the top level directory
+- the patterns are organized around general topics as follows:
+  - _language_ patterns: apply to using the Chef and Ruby language within a cookbook.
+  - _cookbook_ patterns: apply to using cookbooks together as units describing and application or infrastructure. This includes using _roles_, _environments_, _policyfiles_, etc. since those are all about getting cookbooks to work together rationally in the context of converging a node to do usefule work.
+  - _server_ patterns: apply to running your Chef server, or Hosted Chef, or doing without a server entirely
+  - _operating_ patterns: apply to using Chef servers and clients together, including _orchestration_
+  - _implementation_ patterns: apply to using these technologies together in ways that aren't captured by above topics.
+  - _cultural_ patterns: apply to technology-independent patterns of success.
+- each pattern should be named as `topic_(bp|ap|pat)-short-description.md` to enable rational sorting, where bp='bestpractice', ap='anitpattern', pat='pattern'. Examples:
+  - 'language_pat-use-common-idioms.md'
+  - 'cultural_pat-demonstrate-relentlessly.md'
+  - 'server_ap-scaling-early.md'
+  - 'implementation_bp-version-contral-all-the-things.md'
+- pattern template: See [pattern template](0_pattern-template.md)
+
+### Adding new patterns
+
+New patterns should be submitted as PRs following standard Github workflow, using the template and the naming conventions described above. Updating this index file will be the responsibility of the maintainers.
+
+Feel free to submit issues that describe candidate patterns prior to the full pattern, but please do so with the intent of writing the pattern if subsequent discussion is encouraging.
 
 Contents
 ========
 
-Chef Language
--------------
-* Attributes
-  * Lazy attributes: Use a variable if you can
-  * Naming/Namespacing
-  * Scoping
-    * Attributes scoping: cookbook, env, role, node -- See gist: https://gist.github.com/pburkholder/d9d92612989df9dfb2bd
-  * Arrays are to be avoided at all costs
-  * Node attribute level: Use 'default' except when you don't
-    * node.default
-    * node.override
-    * node.normal - stored with node state on server
-    * node.run_state - exists only in context of chef run.
-    * When to use run_state
-  * pure_ruby always wins:
-   ````ruby
-   template expander_config do
-    source "expander.rb.erb" # snip
-    options = node['private_chef']['opscode-expander'].to_hash
-    options['reindexer'] = false
-    variables(options)
-  end
-````
-* Roles
-* Environments
-* Databags
-  * Are they really a code smell?
-* Resources
-  * LWRPs with Chef DSL
-  * LWRPs with pure Ruby, http://docs.getchef.com/lwrp_custom_provider_ruby.html
-  * HWRPs or plain old resources
-*
+Reference material
+------------------
 
-Testing
--------
- * See http://lists.opscode.com/sympa/arc/chef/2015-05/msg00134.html for J Timberman's summary
+- [Pattern Template](./0_pattern-template.md)
+- [LOPP Platform](./LOPP_platform.md): What the final home for LOPP should be.
+- [Original README](./old_README.md): A dumping ground that was the genesis for the LOPP.
 
+Patterns and Practices
+----------------------
 
-Working with Chef
------------------
-* Promoting Cookbook Versions
-  * See email thread, http://lists.opscode.com/sympa/arc/chef/2015-04/msg00255.html, "How to manage cookbook versions"
-* Workflows, cookbook promotion and versioning
-  * knife-spork
-  * berks apply
-  * CI/CD plugins
-* Catching errors
-  * Analytics
-  * Handlers
-* Service discovery
-  * Search often lags behind reality
-   * safe-search cookbook
-  * Use services that don't require discovery (e.g. Sensu instead of Nagios)
-  * Complementary tools (e.g. Consul, Zookeeper)
-* Server scaling and availability
-  * Important point is: don't get hung up on this. It's okay to stand up a standalone server while you build out your HA system; and probably better if you do it this way. Just be ready to move DNS and ec-backup when your HA server is ready. (Ref. discussion peter/irving re. credit card customer)
-  * *anti-pattern*: monolithic clusters -- cross-datacenter search is not worth the pain. Scaling beyond 50k nodes per cluster needs a hard look. 
-  * Whitelisting attributes
-  * Bloated chefs talk from chefconf15
-* Secrets
-  * knife vault: hard to use, no locking on databags, no transactions and requires two ops to succeed, autoscaling hard
-  * Hashicorp Vault
-  * Sneaker (AWS only?)
-  * Conjur
-  * Cloudflare RedOctober
-  * AWS Key Management Service (AWS only)
-* Security
-  * How to answer: Is Chef PCI compliant (or 'x-compliant')?
-* CM doesn't mean you say goodbye to SSH/Winrm (sorry)
-* Your pilot project
-  * Get chef-client w/ empty runlist everywhere
-  * chef-client to manage MOTD
-  * Use chef to configure a new service (logging, monitoring) on existing nodes
-  * Use chef in a Greenfield project on new nodes
-  * Use chef to bring a manually managed service under configuration-management - **AntiPattern**
-    * You're sure to miss something or break something. You'll need a full rebuild to be sane.
-* Working with multiple Chef servers or orgs
-  * https://github.com/greenandsecure/knife-block
-  * ChefVM
-  * Running supermarket internally
-   * Exposes Berkshelf API for berks 3.0
-   * Berks 3 no longer pulls from Chef server(?)
-* "Enforcing run_list"
-  * breaks the model -- see page for this. -- but wait -- desired state configuration is coming
-* cookbook repository organization
-  * one repo per cookbook (Berkshelf way)
-  * one massive repo
-  * Mixed
-    * one repo for chef
-    * one repo per cookbooks for cookbooks across teams
-    * one repo per project with multiple cookbooks therein
- * cookbooks always roll forward.
-   * suppose 1.0.0 sets httpd version to 2.2.2
-     - 1.0.1 sets httpd version to 2.2.3 _and_ installs squid. And things
-       break.
-       - Maybe squid breaks things, or maybe its the httpd update. No one is
-         sure
-     - Rolling back to 1.0.0 does would roll back httpd to 2.2.2, but does
-       nothing about squid
-     - So one must roll forward to cookbook 1.0.2 with httpd 2.2.2, and ensure
-       squid is absent.
-=======
-* Orchestration
-  * knife-ssh Keys! Scaling!
-   * partial run-list runs (anti-pattern - drift)
-  * high-frequency chef-client runs: Too much server load, too much client load
-  * push-jobs: v2 is still baking
-  * ansible: (you didn't hear about here)
-  * rundeck
-  * blender: https://github.com/PagerDuty/blender (not much is known)
+Administrivia
+=============
 
-The Chef Ecosystem
--------------------
-* Commmunity cookbooks
-  * How to assess and consume them
-  * How to wrap them --
-   * E.g. This message on chef-users:
-    Clearly from the mailing list and http://stackoverflow.com/search?q=chef+wrapper+cookbook there are tons of questions about how best to use wrapper cookbooks. http://lists.opscode.com/sympa/arc/chef/2015-04/msg00135.html
-  * When to rewind and when to give up
-* Multi-org chef server with Supermarket for common cookbooks - what pattern to follow
-* Communication and community building
-  * Automation Champions
-* Getting and offering help
-  * Pull requests and code reviews
-* How drive up  end user engagement beyond IT/OPs?
-  * Hold a 'Meetup' internally for Cheffians to share use cases, success stories, garner enthusiasm
-  * Hold regular brownbags, cookbook sessions
-  * Share success stories
-  * Start small
-  * See also The Standard Bank Dev Ops journey, part 3 here: https://www.chef.io/blog/2015/02/16/standard-bank-our-devops-journey-part-3/
-  * 
-* Adam Jacobs recommends
-  * Demo your stuff relentlessly, every week, invite the sharks and naysayers
-  * 1 big ugly cookbook for, say, JBoss is a good thing as it exposes the ugliness to developers who would rather pretend it's not there. Uses peer pressure to move to better code
-  * Start with a working group to hammer out initial implementation, then disperse them. Bring in others and spit them out.
-    * Communisim ?? [getting clarification here]
-  * IT doesn't matter, but employee engagement does. And shorter cycle time builds engagement.
+License: Originally published under Apache 2.0. Peter Burkholder only contributor to date (23 June 2015)
 
-For further reading
--------------------
-
-This blog post,
-http://www.prashantrajan.com/posts/2013/06/leveling-up-chef-best-practices/,
-has a nice set of links to others' best practices.
-  
-
-About this document
-===================
-
-Chef doesn't provide good guidance on practices once. e.g.:
-
-* Mailing list, 26 Nov 2014:
-
-  > Take - for example- the strategy of the cheap hosting provider DigitalOcean - They provide lots of nice and easy tutorials that not only rank quite well in Google but also slightly tie the users to their (commodity/kvm-vps) services. When someone searches for „chef best practices“ or „chef tutorials“, he will find https://learn.getchef.com/ which is just a tutorial about chef, not about solving real world problems (e.g., install and maintain a decent mailing list service in the cloud).
-  > You’ll only reach people that are already sold to chef (or forced to use it) but not the unbiased user that want’s to level up in DevOps. Such users usually have a „real world problem they need to solve“ and will find „copy+paste“ tutorials  or trending „how I solved everything in 5 minutes with docker, go and nodejs“ blogposts somewhere else and will never learn the benefits of chef and its toolchain.
-  > IMHO this is an excellent occasion to write a real-word application-cookbook for a mailing list/discourse-combination and use it as an example in your tutorial/docs/blog ;)
-
-
-Disclaimer
-==========
-
-These views are my own and are not those of Chef, Inc.
-Copyright 2014 Peter Burkholder
+Maintainers

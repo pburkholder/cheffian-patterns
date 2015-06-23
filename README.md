@@ -14,6 +14,7 @@ Chef Language
   * Lazy attributes: Use a variable if you can
   * Naming/Namespacing
   * Scoping
+    * Attributes scoping: cookbook, env, role, node -- See gist: https://gist.github.com/pburkholder/d9d92612989df9dfb2bd
   * Arrays are to be avoided at all costs
   * Node attribute level: Use 'default' except when you don't
     * node.default
@@ -40,7 +41,9 @@ Chef Language
   * HWRPs or plain old resources
 *
 
-
+Testing
+-------
+ * See http://lists.opscode.com/sympa/arc/chef/2015-05/msg00134.html for J Timberman's summary
 
 
 Working with Chef
@@ -56,12 +59,23 @@ Working with Chef
   * Handlers
 * Service discovery
   * Search often lags behind reality
+   * safe-search cookbook
   * Use services that don't require discovery (e.g. Sensu instead of Nagios)
   * Complementary tools (e.g. Consul, Zookeeper)
 * Server scaling and availability
   * Important point is: don't get hung up on this. It's okay to stand up a standalone server while you build out your HA system; and probably better if you do it this way. Just be ready to move DNS and ec-backup when your HA server is ready. (Ref. discussion peter/irving re. credit card customer)
   * *anti-pattern*: monolithic clusters -- cross-datacenter search is not worth the pain. Scaling beyond 50k nodes per cluster needs a hard look. 
-* Secrets and security
+  * Whitelisting attributes
+  * Bloated chefs talk from chefconf15
+* Secrets
+  * knife vault: hard to use, no locking on databags, no transactions and requires two ops to succeed, autoscaling hard
+  * Hashicorp Vault
+  * Sneaker (AWS only?)
+  * Conjur
+  * Cloudflare RedOctober
+  * AWS Key Management Service (AWS only)
+* Security
+  * How to answer: Is Chef PCI compliant (or 'x-compliant')?
 * CM doesn't mean you say goodbye to SSH/Winrm (sorry)
 * Your pilot project
   * Get chef-client w/ empty runlist everywhere
@@ -95,6 +109,15 @@ Working with Chef
        nothing about squid
      - So one must roll forward to cookbook 1.0.2 with httpd 2.2.2, and ensure
        squid is absent.
+=======
+* Orchestration
+  * knife-ssh Keys! Scaling!
+   * partial run-list runs (anti-pattern - drift)
+  * high-frequency chef-client runs: Too much server load, too much client load
+  * push-jobs: v2 is still baking
+  * ansible: (you didn't hear about here)
+  * rundeck
+  * blender: https://github.com/PagerDuty/blender (not much is known)
 
 The Chef Ecosystem
 -------------------

@@ -1,7 +1,10 @@
 Pattern subject
 ===============
 
-Summary. Note that Peter B. is not wedding to this template. Just needed something here to start with.
+Summary. Note that Peter B. is not wedded to this template. Just needed something here to start with.
+
+Maturity level: Beginner/Intermediate/Advanced/Expert
+(Are there patterns that are beginner only?)
 
 Description
 -----------

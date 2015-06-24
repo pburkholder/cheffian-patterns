@@ -60,6 +60,13 @@ Patterns and Practices
 Administrivia
 =============
 
-License: Originally published under Apache 2.0. Peter Burkholder only contributor to date (23 June 2015)
+## Copyright
 
-Maintainers
+Chef Patterns are in the public domain. In jurisdictions that do not allow for this, they are available under CC0. To the extent possible under law, the person who associated CC0 with their work has waived all copyright and related or neighboring rights to their work.
+
+## Maintainers
+
+Peter Burkholder (pburkholder)
+Josh O'brien
+Mike Tyler
+etc....

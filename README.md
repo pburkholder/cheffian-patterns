@@ -1,13 +1,13 @@
 chef-patterns
 =============
 
-### [Cookbook Patterns](./wiki/cookbook_patterns)
+### [Cookbook Patterns](../../wiki/cookbook_patterns)
 
 ### [Server Patterns](../../wiki/server_patterns)
 
-### [Implementation Patterns](./wiki/implementation_patterns)
+### [Implementation Patterns](../../wiki/implementation_patterns)
 
-### [Cultural Patterns](./wiki/cultural_patterns)
+### [Cultural Patterns](../../wiki/cultural_patterns)
 
 Introduction
 ------------
